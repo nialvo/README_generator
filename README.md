@@ -1,5 +1,4 @@
-
-#{title}
+<h1>{title}</h1>
     <h2 id="Description">Description</h2>
     {description}
     <h2>Table Of Contents</h2>
@@ -18,3 +17,4 @@
     <h2 id="Contributing">Contributing</h2>
     <h2 id="Tests">Tests</h2>
     <h2 id="Questions">Questions</h2>
+    
