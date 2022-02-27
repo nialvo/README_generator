@@ -7,7 +7,7 @@
     <a href ="#Usage">Usage</a> &nbsp
     <a href ="#License">License</a> &nbsp
     <a href ="#Contributing">Contributing</a> &nbsp 
-    <a href ="#Tests">Tests</a> &nbsp $nbsp
+    <a href ="#Tests">Tests</a> &nbsp
     <a href ="#Questions">Questions</a> &nbsp
     <h2 id="Installation">Installation</h2>
     <h2 id="Usage">Usage</h2>
