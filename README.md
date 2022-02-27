@@ -2,7 +2,7 @@
     <h2 id="Description">Description</h2>
     {description}
     <h2>Table Of Contents</h2>
-    <a href ="#Description">Description</a>
+    <a href ="#Description">Description</a> &nbsp
     <a href ="#Installation">Installation</a>
     <a href ="#Usage">Usage</a>
     <a href ="#License">License</a>
