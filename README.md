@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>A Very Cool Project</h1>
     <h2 id="Description">Description</h2>
     It does really cool stuff.
@@ -23,3 +24,6 @@
     placeholderGithub<br>
     placeholder@gmail.com    
     
+=======
+
+>>>>>>> d419c9c7112592d1e3e09aa4ae158f3485df71d3
