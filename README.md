@@ -1,3 +1,3 @@
 # README_generator
 
-##table of contents
+<h2>table of contents</h2>
