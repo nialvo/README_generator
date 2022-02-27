@@ -1,4 +1,4 @@
-# README_generator
+
 #{title}
     <h2 id="Description">Description</h2>
     {description}
