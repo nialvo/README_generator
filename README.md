@@ -11,7 +11,6 @@
     <a href ="#Questions">Questions</a>
 
     <h2 id="Installation">Installation</h2>
-    <h2 id="Description">Description</h2>
     <h2 id="Usage">Usage</h2>
     <h2 id="License">License</h2>
     <h2 id="Contributing">Contributing</h2>
