@@ -6,10 +6,25 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
-//array of questions for user input
-const questions = [];
+//list of licences
 
-//function to get the answers 
+const licenseList = [
+"None",
+"Apache License 2.0",
+"GNU General Public License v3.0",
+"MIT License",
+"BSD 2-Clause 'Simplified' License",
+"BSD 3-Clause 'New' or 'Revised' License",
+"Boost Software License 1.0",
+"Creative Commons Zero v1.0 Universal",
+"Eclipse Public License 2.0",
+"GNU Affero General Public License v3.0",
+"GNU General Public License v2.0",
+"GNU Lesser General Public License v2.1",
+"Mozilla Public License 2.0",
+"The Unlicense "
+]
+
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -44,9 +59,11 @@ const promptUser = () => {
         message: 'Enter testing instructions.',
       },
       {
-        type: 'input',
+
+        type: 'checkbox',
         name: 'license',
-        message: 'Choose your license (this needs to be checkbox, and also get badge btw)',
+        message: 'Choose license.',
+        choices: licenseList,
       },
       {
         type: 'input',
@@ -56,15 +73,15 @@ const promptUser = () => {
       {
         type: 'input',
         name: 'email',
-        message: 'Enter an email address to associate with this project.',
+        message: 'Enter an Email address to associate with this project.',
       },
 
     ]);
   };
 
 
-
 //function to write README file
+
 const generateREADME = ({ title, description, installation, usage, contribution, test, license, github, email }) =>
     `<h1>${title}</h1>
     <h2 id="Description">Description</h2>
@@ -88,19 +105,23 @@ const generateREADME = ({ title, description, installation, usage, contribution,
     <h2 id="Tests">Tests</h2>
     ${test}
     <h2 id="Questions">Questions</h2>
-    ${github}<br>
-    ${email}    
+    To check for any updates and fixes, please go to the github account at: 
+    <a href ="https://github.com/${github}" target="_blank">github.com/${github}</a><br>
+    For any other questions please send an email to:
+    <a href="mailto:${email}">${email}</a><br>   
     `;
 
 
-// TODO: Create a function to initialize app
+// function to initialize app
+
 function init() {
-    promptUser(questions)
-        .then((answers) => fs.writeFileSync('README.md', generateREADME(answers)))
+    promptUser()
+        .then((answers) => fs.writeFileSync('./generatedREADME/README.md', generateREADME(answers)))
         .catch((err) => console.error(err));
 }
 
-// Function call to initialize app
+// initialize app
+
 init();
 
 
