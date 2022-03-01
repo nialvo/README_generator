@@ -110,11 +110,7 @@ const generateREADME = ({ title, description, installation, usage, contribution,
             badge[1]=badgeList[i][1];
         }
     }
-    console.log(license);
-    console.log(licenseList);
-    console.log(badgeList);
-
-
+    
     return`
     ${badge[0]}<br>
     <h1>${title}</h1>
