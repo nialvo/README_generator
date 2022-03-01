@@ -25,6 +25,7 @@ const licenseList = [
 "The Unlicense "
 ];
 
+//list of img.shields.io extensions for badges and addresses for license texts
 const badgeList = [
     ["License-None-black","https://choosealicense.com/no-permission/"],
     ["License-Apache_2.0-blue","https://opensource.org/licenses/Apache-2.0"],
@@ -42,7 +43,7 @@ const badgeList = [
     ["License-Unlicense-blue","https://unlicense.org/"]
 ]
 
-
+//get answers from user
 const promptUser = () => {
     return inquirer.prompt([
       {
@@ -97,30 +98,14 @@ const promptUser = () => {
   };
 
 
-//functions to choose badge and write README file
-
-/*
-const badger =({ title, description, installation, usage, contribution, test, license, github, email })=>{
-    
-    let b = new Array(2);
-
-    for(let i = 0; i<licenseList.length; i++){
-        if(license==licenseList[i]){
-            b[0]=`<a href="${badgeList[i][1]}" target="_blank">![](${badgeList[i][0]})</a>`
-            b[1]=badgeList[i][1];
-        }
-    }
-    
-
-      
-}*/
-
 const generateREADME = ({ title, description, installation, usage, contribution, test, license, github, email }) =>{
     
     //select appropriate badge and link for chosen license
     let badge = new Array(2);
+    badge[0]=badgeList[0][0];//default is no license if the user does not make a selection
+    badge[1]=badgeList[0][1];
     for(let i = 0; i<licenseList.length; i++){
-        if(String(license)==licenseList[i]){
+        if(String(license)==licenseList[i]){//once we find a match, create array with badge and link to license text
             badge[0]=`<a href="${badgeList[i][1]}" target="_blank">![](https://img.shields.io/badge/${badgeList[i][0]})</a>`
             badge[1]=badgeList[i][1];
         }
