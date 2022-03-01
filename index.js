@@ -23,6 +23,23 @@ const licenseList = [
 "GNU Lesser General Public License v2.1",
 "Mozilla Public License 2.0",
 "The Unlicense "
+];
+
+const badgeList = [
+    ["License-None-black","https://choosealicense.com/no-permission/"],
+    ["License-Apache_2.0-blue","https://opensource.org/licenses/Apache-2.0"],
+    ["License-GPLv3-blue","https://www.gnu.org/licenses/gpl-3.0"],
+    ["License-MIT-yellow","https://opensource.org/licenses/MIT"],
+    ["License-BSD_2--Clause-orange","(https://opensource.org/licenses/BSD-2-Clause"],
+    ["License-BSD_3--Clause-orange","https://opensource.org/licenses/BSD-3-Clause"],
+    ["License-Boost_1.0-lightblue","https://www.boost.org/LICENSE_1_0.txt"],
+    ["License-CC0_1.0-lightgrey","http://creativecommons.org/publicdomain/zero/1.0/"],
+    ["License-EPL_2.0-red","https://opensource.org/licenses/EPL-2.0"],
+    ["License-AGPL_v3.0-blue","https://www.gnu.org/licenses/agpl-3.0"],
+    ["License-GPL_v2.0-blue.svg","https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"],
+    ["License-LGPL_v2.1-blue","https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html"],
+    ["License-MPL_2.0-brightgreen","https://opensource.org/licenses/MPL-2.0"],
+    ["License-Unlicense-blue","https://unlicense.org/"]
 ]
 
 
@@ -80,10 +97,42 @@ const promptUser = () => {
   };
 
 
-//function to write README file
+//functions to choose badge and write README file
 
-const generateREADME = ({ title, description, installation, usage, contribution, test, license, github, email }) =>
-    `<h1>${title}</h1>
+/*
+const badger =({ title, description, installation, usage, contribution, test, license, github, email })=>{
+    
+    let b = new Array(2);
+
+    for(let i = 0; i<licenseList.length; i++){
+        if(license==licenseList[i]){
+            b[0]=`<a href="${badgeList[i][1]}" target="_blank">![](${badgeList[i][0]})</a>`
+            b[1]=badgeList[i][1];
+        }
+    }
+    
+
+      
+}*/
+
+const generateREADME = ({ title, description, installation, usage, contribution, test, license, github, email }) =>{
+    
+    //select appropriate badge and link for chosen license
+    let badge = new Array(2);
+    for(let i = 0; i<licenseList.length; i++){
+        if(String(license)==licenseList[i]){
+            badge[0]=`<a href="${badgeList[i][1]}" target="_blank">![](https://img.shields.io/badge/${badgeList[i][0]})</a>`
+            badge[1]=badgeList[i][1];
+        }
+    }
+    console.log(license);
+    console.log(licenseList);
+    console.log(badgeList);
+
+
+    return`
+    ${badge[0]}<br>
+    <h1>${title}</h1>
     <h2 id="Description">Description</h2>
     ${description}
     <h2>Table Of Contents</h2>
@@ -99,7 +148,8 @@ const generateREADME = ({ title, description, installation, usage, contribution,
     <h2 id="Usage">Usage</h2>
     ${usage}
     <h2 id="License">License</h2>
-    ${license}
+    This software is covered by the license: ${license}<br>
+    For more information about this license please follow this link: <a href="${badge[1]}" target="_blank">${license}</a>
     <h2 id="Contributing">Contributing</h2>
     ${contribution}
     <h2 id="Tests">Tests</h2>
@@ -111,12 +161,12 @@ const generateREADME = ({ title, description, installation, usage, contribution,
     <a href="mailto:${email}">${email}</a><br>   
     `;
 
-
+}
 // function to initialize app
 
 function init() {
     promptUser()
-        .then((answers) => fs.writeFileSync('./generatedREADME/README.md', generateREADME(answers)))
+        .then((answers) =>fs.writeFileSync('./generatedREADME/README.md', generateREADME(answers)))
         .catch((err) => console.error(err));
 }
 
@@ -124,29 +174,3 @@ function init() {
 
 init();
 
-
-
-/*
-sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
-
-project title
-THEN this is displayed as the title of the README
-
-description, installation instructions, usage information, contribution guidelines, and test instructions
-Description, Installation, Usage, Contributing, and Tests
-
-license for my application from a list of options
-THEN a badge for that license is added near the top of the README 
-a notice is added to the section of the README entitled License that explains which license the application is covered under
-
-GitHub username
-added to the section of the README entitled Questions,
-with a link to my GitHub profile
-
-email address
-THEN this is added to the section of the README entitled Questions, 
-with instructions on how to reach me with additional questions
-
-WHEN I click on the links in the Table of Contents
-THEN I am taken to the corresponding section of the README
-```*/
