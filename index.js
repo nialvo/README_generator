@@ -111,9 +111,8 @@ const generateREADME = ({ title, description, installation, usage, contribution,
         }
     }
     
-    return`
-    ${badge[0]}<br>
-    <h1>${title}</h1>
+    return`${badge[0]}<br>
+  <h1>${title}</h1>
     <h2 id="Description">Description</h2>
     ${description}
     <h2>Table Of Contents</h2>
