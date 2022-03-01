@@ -31,7 +31,7 @@ const badgeList = [
     ["License-Apache_2.0-blue","https://opensource.org/licenses/Apache-2.0"],
     ["License-GPLv3-blue","https://www.gnu.org/licenses/gpl-3.0"],
     ["License-MIT-yellow","https://opensource.org/licenses/MIT"],
-    ["License-BSD_2--Clause-orange","(https://opensource.org/licenses/BSD-2-Clause"],
+    ["License-BSD_2--Clause-orange","https://opensource.org/licenses/BSD-2-Clause"],
     ["License-BSD_3--Clause-orange","https://opensource.org/licenses/BSD-3-Clause"],
     ["License-Boost_1.0-lightblue","https://www.boost.org/LICENSE_1_0.txt"],
     ["License-CC0_1.0-lightgrey","http://creativecommons.org/publicdomain/zero/1.0/"],
